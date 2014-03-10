@@ -1,0 +1,75 @@
+/**
+*name:陳品文
+*ID:U10216044
+*Exercise:15.01
+**/
+import java.util.*;
+
+public class U10216044_hw1 {
+  public static void main(String[] args) {
+    String s = "";
+    System.out.println("Please choose one of the following function");
+    System.out.println("A:f(x) = x^2\nB:f(x) = sin(x)\nC:f(x) = cos(x)");
+    System.out.println("D:f(x) = tan(x)\nE:f(x) = cos(x)+5sin(x)");
+    System.out.println("F:f(x) = 5cos(x)+sin(x)\nG:f(x) = log(x)+x^2");
+
+    Scanner input = new Scanner(System.in);
+    while (s.length() != 1) {
+      s = input.nextLine();
+      char c[] = new char[s.length()];
+      for(int i = 0; i < s.length(); i++)
+        c[i] = s.charAt(i);
+      System.out.println((int)c[0]);
+int a = (int)c[0];   
+      if (s.length() > 1 || ((int)c[0] < 65 || (int)c[0] > 71)) {
+        System.out.println("Please enter one char\"A to G\" in capital letter");
+        s = "";
+      }
+    }
+    System.out.println("Now enter a number for the value of \"x\"");
+    double x = input.nextDouble();
+    read(s, x);
+  }
+
+  public static void read(String s, double x) {
+    char c = s.charAt(0);
+    if ((int)c == 65)
+      System.out.println("f(x) = " + functionA(x));
+    else if ((int)c == 66)
+      System.out.println("f(x) = " + functionB(x));
+    else if ((int)c == 67)
+      System.out.println("f(x) = " + functionC(x));
+    else if ((int)c == 68)
+      System.out.println("f(x) = " + functionD(x));
+    else if ((int)c == 69)
+      System.out.println("f(x) = " + functionE(x));
+    else if ((int)c == 70)
+      System.out.println("f(x) = " + functionF(x));
+    else if ((int)c == 71)
+      System.out.println("f(x) = " + functionG(x));
+
+  }
+
+  public static double functionA(double x) {
+    return Math.pow(x, 2);
+  }
+  public static double functionB(double x) {
+    return Math.sin(x);
+  }
+  public static double functionC(double x) {
+    return Math.cos(x);
+  }
+  public static double functionD(double x) {
+    return Math.tan(x);
+  }
+  public static double functionE(double x) {
+    return Math.cos(x) + (5 * Math.sin(x));
+  }
+  public static double functionF(double x) {
+    return (5 * Math.cos(x)) + Math.sin(x);
+  }
+  public static double functionG(double x) {
+    return Math.log(x) + Math.pow(x, 2);
+  }
+
+}
